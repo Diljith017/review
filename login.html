@@ -1,0 +1,37 @@
+<form #signupform="ngForm"
+      (ngSubmit)="Submitform()">
+    
+    
+<label>username:</label>
+<input type="text"
+       name="username"
+       ngModel
+       required
+       #usernameFeild="ngModel">
+
+       @if(usernamefield.invalid $$ usernamefield.touched){
+        @if(usernamefeild.error?.['required']){
+            <p>required</p>
+        }
+       }
+
+
+
+<label>password:</label>
+<input type="password"
+       name="password"
+       ngModel
+       required
+       #passwordfeil="ngModel">
+
+       @if(passwordfield.invalid $$ passwordfield.touched){
+        @if(passwordfeild.error?.['required']){
+            <p>required</p>
+        }
+       }
+
+
+<button [disable]="signupform.invalid">submit</button>
+
+    
+    </form>
